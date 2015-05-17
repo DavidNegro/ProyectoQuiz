@@ -1,8 +1,8 @@
 module.exports = function (sequelize, DataTypes){
-    var quiz = sequelize.define('Quiz',
+    return sequelize.define('Quiz',
         {pregunta: {
             type: DataTypes.STRING,
-            unique: {msg: "-> Pregunta ya existe"},
+            //unique: {msg: "-> Pregunta ya existe"},
             validate: {notEmpty: {msg: "-> Falta Pregunta"}}
             },
         respuesta: {
@@ -10,5 +10,5 @@ module.exports = function (sequelize, DataTypes){
             validate: {notEmpty: {msg: "-> Falta Respuesta"}}
             } 
         });
-    return quiz;
+
 }
