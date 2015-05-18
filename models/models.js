@@ -25,20 +25,37 @@ var sequelize = new Sequelize(DB_name,user,pwd,
 //Importar la definición de la tabla Quiz en quiz.js
 var Quiz = sequelize.import(path.join(__dirname,'quiz'));
 var Comment= sequelize.import(path.join(__dirname,'comment'));
+var User = sequelize.import(path.join(__dirname,'user'));
 
 Comment.belongsTo(Quiz); //los comentarios pertenecen a los quizes
 Quiz.hasMany(Comment);  //Un quiz pueede tener muchos comentariors
 //Relación 1-N
 
+Quiz.belongsTo(User);
+User.hasMany(Quiz);
+
 exports.Quiz=Quiz; //exportar la definición de la tabla Quiz
 exports.Comment=Comment; //exportamos la definición de la tabla Comment
-
+exports.User=User;
 sequelize.sync().then(function(){
-                         Quiz.count().success(function(count){
-                                if(count ===0){
-                                Quiz.create({pregunta: 'Capital de Italia',
-                                            respuesta: 'Roma'
-                        }).then(function(){console.log('Base de datos inicializada');});
-                        };
-        });
+             User.count().then(function(count){
+                    if(count ===0){
+                    User.bulkCreate(
+                    [{username: 'admin',password: '1234', isAdmin: true},
+                    {username: 'pepe', password: '5678'}]
+                    ).then(function(){
+                        console.log('Base de datos (tabla user) inicializada');
+                        Quiz.count().then(function(count){
+                                if(count===0){
+                                    Quiz.bulkCreate([
+                                    {pregunta: 'Capital de Italia', respuesta: 'Roma', UserId: 2},
+                                    {pregunta: 'Capital de Portugal', respuesta: 'Lisboa', UserId: 2}
+                                    ]).then(function(){console.log('Base de datos (tabla quiz) inicializada');});
+                                }
+
+                            })
+                    })    
+
+            };
+});
 }); 
