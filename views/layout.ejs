@@ -17,6 +17,13 @@
   <body>
     <div id="page-wrap">
       <header class ="main" id="h1">
+          <span class="right">  
+                <% if(!session.user){ %>
+                    <a href="/login"> Login </a>
+                <%}else{  %>
+              <a href="/logout"> Logout </a>
+               <%}%>
+          </span>     
           <h2>Quiz: el juego de las preguntas</h2>
           <form method="get" action="/quizes" >
 	       <input type="text" name="search" value="Buscar"/>
