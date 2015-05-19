@@ -30,8 +30,24 @@ app.use(session());
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 
-//helpers dinámicos
+
 app.use(function(req,res,next){
+    //control de la sesión:
+   var now = new Date().getTime();
+   if(req.session.lastConnection && 
+       (now - req.session.lastConnection)>120000){ //120000~ 2 minutos en ms
+       //si la última conexión de un usuario supera 2 minutos consideramos que:
+       //---Si estaba conectado con una cuenta, ya no tiene
+       // validez y deberá iniciar sesión de nuevo
+       //---La última página visitada tampoco tendrá validez: para evitar casos en
+       //los que un usuario acceda directamente a la página de login y sea redireccionado
+       //a la última página de su anterior sesión
+          delete req.session.user; 
+          delete req.session.redir;
+    }
+    req.session.lastConnection=now;
+    
+    
     if(!req.session.redir){
         req.session.redir='/';
     }

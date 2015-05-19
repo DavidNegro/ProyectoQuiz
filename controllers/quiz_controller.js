@@ -94,3 +94,21 @@ exports.destroy=function(req,res){
     }).catch(function(error){next(error)});
       
 }
+
+exports.statistics=function(req,res){
+    models.Quiz.count().then(function(quizzes){  //preguntas
+        models.Comment.count().then(function(comments){ //comentarios
+            models.Comment.count({include: models.Quiz}).then(function(wComments){ //preguntas con comentario
+                
+                res.render('quizes/statistics.ejs', {quizzes: quizzes,
+                                                comments: comments,
+                                                meanComments: (comments/quizzes),
+                                                woComments: (quizzes - wComments),
+                                                wComments: wComments,
+                                                errors: []});
+                
+            }).catch(function(error){next(error);});
+        }).catch(function(error){next(error);});
+    }).catch(function(error){next(error);});
+
+};
