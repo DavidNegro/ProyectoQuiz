@@ -19,9 +19,12 @@
       <header class ="main" id="h1">
           <span class="right">  
                 <% if(!session.user){ %>
-                    <a href="/login"> Login </a>
+                    <a href="/user"> Sign up </a>
+                    -<a href="/login"> Login </a>
                 <%}else{  %>
-              <a href="/logout"> Logout </a>
+              <%=session.user.username%>
+              -<a href="/user/<%=session.user.id%>/edit">Settings</a>
+              -<a href="/logout"> Logout </a>
                <%}%>
           </span>     
           <h2>Quiz: el juego de las preguntas</h2>
