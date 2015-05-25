@@ -96,10 +96,14 @@ exports.destroy=function(req,res){
 }
 
 exports.statistics=function(req,res){
-    models.Quiz.count().then(function(quizzes){  //preguntas
-        models.Comment.count().then(function(comments){ //comentarios
-            models.Comment.count({include: models.Quiz}).then(function(wComments){ //preguntas con comentario
-                
+    models.Quiz.findAll({include: models.Comment}).then(function(result){  //preguntas
+        var quizzes = result.length; //número de quizzes
+        var wComments=0;             //número de preguntas con comentario
+        var comments=0;              //número de comentarios
+        var quiz;
+        for(quiz in result){ // calculamos el número de comentarios y de preguntas con comentatio
+            if(result[quiz].comments.length>0){ wComments++; comments+=result[quiz].comments.length}
+        }        
                 res.render('quizes/statistics.ejs', {quizzes: quizzes,
                                                 comments: comments,
                                                 meanComments: (comments/quizzes),
@@ -107,8 +111,6 @@ exports.statistics=function(req,res){
                                                 wComments: wComments,
                                                 errors: []});
                 
-            }).catch(function(error){next(error);});
-        }).catch(function(error){next(error);});
     }).catch(function(error){next(error);});
 
 };
