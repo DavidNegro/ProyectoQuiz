@@ -24,6 +24,7 @@
     "sequelize": "~1.7.10",
     "pg": "^4.1.1",
     "method-override": "~2.3.3",
-    "express-session": "~1.11.2"
+    "express-session": "~1.11.2",
+    "multer": "~0.1.8"
   }
 }
