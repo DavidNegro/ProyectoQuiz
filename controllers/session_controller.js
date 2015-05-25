@@ -29,7 +29,7 @@ exports.create=function(req, res){
         }
     //Creamos req.session.user y guardar campos ip y username
     // La sesión se define por la existencia de req.session.user
-    req.session.user={id: user.id, username: user.username};
+    req.session.user={id: user.id, username: user.username, isAdmin: user.isAdmin};
     res.redirect(req.session.redir.toString()); //redirect a path anterior a login
     });
 };

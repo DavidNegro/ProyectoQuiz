@@ -8,14 +8,15 @@
 
 <p><strong>Comentarios</strong></p>
 <%  var index; for( index in quiz.comments){  %>
-    <%if(quiz.comments[index].publicado||session.user){%>
-        <p>
-            -<%=quiz.comments[index].texto %>
-            <%if(session.user && !quiz.comments[index].publicado) {%>
+    <%if(quiz.comments[index].publicado){%>
+<p>-<%=quiz.comments[index].texto %></p>
+            
+    <%} else if(session.user &&(session.user.isAdmin || (session.user && quiz.UserId === session.user.id))) {%>
+        <p>-<%=quiz.comments[index].texto %>
             <a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">  
                 <button>Publicar</button>
             </a>
-            <%}%>
         </p>
+            <%}%>
     <%}%>
-<% } %>
+
