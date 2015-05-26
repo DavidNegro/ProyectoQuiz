@@ -18,7 +18,7 @@ exports.load = function(req, res, next, quizId){
 
 // GET /quizes/:id
 exports.show= function(req, res){
-        res.render('quizes/show',{quiz: req.quiz, errors: []});  
+        res.render('quizes/show',{quiz: req.quiz, favourites: req.favourites, errors: []});  
 };
 
 // GET /quizes/:id/answer
@@ -34,16 +34,17 @@ exports.answer= function(req,res){
 exports.index=function(req,res){
     var options = {};
     if(req.user){
-    options.where={UserId: req.user.id};
+        options.where={UserId: req.user.id};
     } else {
-    var search = (req.query.search||"");
-    search.replace(" ","%");
-    search="%"+search+"%";    
-    options.where=["pregunta like ?", search];
+        var search = (req.query.search||"");
+        search.replace(" ","%");
+        search="%"+search+"%";    
+        options.where=["pregunta like ?", search];
     }
     
     models.Quiz.findAll(options).then(function(quizes){
-        res.render('quizes/index.ejs', {quizes: quizes, errors: []});
+        //res.render('quizes/index.ejs', {quizes: quizes, favourites: res.favourites, errors: []});
+         res.render('quizes/index.ejs', { quizes: quizes, favourites: req.favourites, errors: {} });
     }).catch(function(error){next( error);});
 };
 

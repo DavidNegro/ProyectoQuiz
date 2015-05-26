@@ -13,8 +13,29 @@
                 </button>
             </form>                
         </td>
-        <%}
-     }%>
+        <%}%>
+        <td>
+            <% var fav=false; for(j in favourites){ 
+                 if(favourites[j].id===quizes[i].id){
+                    fav=true;
+                     break;
+                 }
+             } %>
+            <% if(fav){%>
+            <form method="post" action="/user/<%=session.user.id%>/favourites/<%=quizes[i].id%>?_method=delete">
+                <button type = "submit" >
+                   <img src="/images/favon.gif"/>
+                </button>
+            </form>
+            <%} else {%>
+            <form method="post" action="/user/<%=session.user.id%>/favourites/<%=quizes[i].id%>">
+                <button type = "submit" >
+                    <img src="/images/favoff.gif"/>
+                </button>
+            </form>
+            <% } %>
+        </td>     
+     <%}%>
     </tr>
     <% } %>
 </table><p>

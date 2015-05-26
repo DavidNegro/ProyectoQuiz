@@ -26,7 +26,7 @@ var sequelize = new Sequelize(DB_name,user,pwd,
 var Quiz = sequelize.import(path.join(__dirname,'quiz'));
 var Comment= sequelize.import(path.join(__dirname,'comment'));
 var User = sequelize.import(path.join(__dirname,'user'));
-
+var Favourite= sequelize.define('Favourites', {});
 Comment.belongsTo(Quiz); //los comentarios pertenecen a los quizes
 Quiz.hasMany(Comment);  //Un quiz pueede tener muchos comentariors
 //Relación 1-N
@@ -34,9 +34,16 @@ Quiz.hasMany(Comment);  //Un quiz pueede tener muchos comentariors
 Quiz.belongsTo(User);
 User.hasMany(Quiz);
 
+Quiz.hasMany(User,{through: Favourite}); //Tabla de favoritos
+User.hasMany(Quiz,{through: Favourite});
+
+
+
 exports.Quiz=Quiz; //exportar la definición de la tabla Quiz
 exports.Comment=Comment; //exportamos la definición de la tabla Comment
 exports.User=User;
+exports.Favourite=Favourite;
+
 sequelize.sync().then(function(){
              User.count().then(function(count){
                     if(count ===0){

@@ -8,7 +8,28 @@
 </form>
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario </button></a></p>
-
+<p>            <%if(session.user){ 
+    var fav=false; for(j in favourites){ 
+                 if(favourites[j].id===quiz.id){
+                    fav=true;
+                     break;
+                 }
+             } %>
+            <% if(fav){%>
+            <form method="post" action="/user/<%=session.user.id%>/favourites/<%=quiz.id%>?_method=delete">
+                <button type = "submit" >
+                   <img src="/images/favon.gif"/>
+                </button>
+            </form>
+            <%} else {%>
+            <form method="post" action="/user/<%=session.user.id%>/favourites/<%=quiz.id%>">
+                <button type = "submit" >
+                    <img src="/images/favoff.gif"/>
+                </button>
+            </form>
+            <% } 
+                     }%> 
+</p>
 <p><strong>Comentarios</strong></p>
 <%  var index; for( index in quiz.comments){  %>
     <%if(quiz.comments[index].publicado){%>

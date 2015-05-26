@@ -5,7 +5,7 @@ var quizController = require('../controllers/quiz_controller');
 var commentController=require('../controllers/comment_controller');
 var sessionController=require('../controllers/session_controller');
 var userController = require('../controllers/user_controller');
-
+var favouritesController = require('../controllers/favourites_controller')
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz', errors: [] });
@@ -32,12 +32,12 @@ router.post('/user', userController.create); //registrar usuario
 router.get('/user/:userId(\\d+)/edit', sessionController.loginRequired, userController.ownershipRequired, userController.edit);
 router.put('/user/:userId(\\d+)', sessionController.loginRequired,userController.ownershipRequired,  userController.update);
 router.delete('/user/:userId(\\d+)', sessionController.loginRequired,userController.ownershipRequired, userController.destroy);
-router.get('/user/:userId(\\d+)/quizes', quizController.index);
+router.get('/user/:userId(\\d+)/quizes', sessionController.loginRequired,userController.ownershipRequired,favouritesController.favouritesRequired, quizController.index);
 
 //definición de rutas de quizes 
 router.get('/quizes/statistics', quizController.statistics);
-router.get('/quizes',quizController.index);
-router.get('/quizes/:quizId(\\d+)', quizController.show);
+router.get('/quizes',favouritesController.favouritesRequired,quizController.index);
+router.get('/quizes/:quizId(\\d+)',favouritesController.favouritesRequired, quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 router.get('/quizes/new',       sessionController.loginRequired,     quizController.new);
 router.post('/quizes/create',   sessionController.loginRequired, multer({dest: './public/media/'}),   quizController.create);
@@ -50,4 +50,10 @@ router.delete('/quizes/:quizId(\\d+)/',sessionController.loginRequired,quizContr
 router.post('/quizes/:quizId(\\d+)/comments',    commentController.create);
 router.get( '/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',
           sessionController.loginRequired, commentController.ownershipRequired, commentController.publish);
+
+//definición de rutas de favoritos
+router.get('/user/:userId(\\d+)/favourites',sessionController.loginRequired,userController.ownershipRequired,favouritesController.favouritesRequired, favouritesController.index);
+router.post('/user/:userId(\\d+)/favourites/:quizId(\\d+)',sessionController.loginRequired,userController.ownershipRequired, favouritesController.create);
+router.delete('/user/:userId(\\d+)/favourites/:quizId(\\d+)',sessionController.loginRequired,userController.ownershipRequired, favouritesController.destroy);
+//favouritesController.favouritesRequired
 module.exports = router;
