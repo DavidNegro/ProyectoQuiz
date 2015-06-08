@@ -2,7 +2,40 @@ body {background: #999;}
 
 #page-wrap:after {content: "Wide Layout" ;}
 
-nav {float: left; width: 15%; height: 400px;}
-nav span {margin: 0px 100px 0px 0px;}
-section {float: right; width: 84%; height:400px;}
+nav {float: left; width:180px; height: 400px;}
+nav span {margin: 0px 100px 0px 0px;width: 100%;}
+section {float: left; 
+    /* Firefox */
+    width: -moz-calc(100% - 185px);
+    /* WebKit */
+    width: -webkit-calc(100% - 185px);
+    /* Opera */
+    width: -o-calc(100% - 185px);
+    /* Standard */
+    width: calc(100% - 185px); 
+    height:400px;}
 footer {clear: both; display: block;}
+
+#logo{
+
+    height: 70px;
+  
+}
+header{
+    height: 100px;
+    background-image: url(/images/logo_wide.svg);
+    background-repeat: no-repeat;
+    background-size: 179px 100px;
+}
+.nav_text{
+margin-top: 13px;    
+text-align: left;
+display: block;    
+}
+.nav_icon{
+float: left;
+margin: 3px;    
+width: 40px;
+height: 40px;
+display: block;    
+}

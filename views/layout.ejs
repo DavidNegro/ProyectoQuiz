@@ -26,21 +26,23 @@
               -<a href="/user/<%=session.user.id%>/edit">Settings</a>
               -<a href="/logout"> Logout </a>
                <%}%>
-          </span>     
-          <h2>Quiz: el juego de las preguntas</h2>
+          </span>
+          
+          <div id="logo"> </div>
+          
           <form method="get" action="/quizes" >
 	       <input type="text" name="search" value="Buscar"/>
 	       <input type="submit" value="Busca una pregunta!">
           </form>
       </header>
       <nav class= "main" id="n1" role="navigator">
-        <span><a href="/">Inicio</a></span>
-        <span><a href="/quizes">Preguntas</a></span>
-        <span><a href="/author">Autores</a></span>
-        <span><a href="/quizes/statistics">Estadísticas</a></span>  
+          <span><a href="/"><img class="nav_icon" src="/images/inicio.svg"><span class="nav_text">Inicio</span></a></span>
+        <span><a href="/quizes"><img class="nav_icon" src="/images/preguntas.svg"><span class="nav_text">Preguntas</span></a></span>
+        <span><a href="/author"><img class="nav_icon" src="/images/autores.svg"><span class="nav_text">Autores</span></a></span>
+        <span><a href="/quizes/statistics"><img class="nav_icon" src="/images/estadisticas.svg"><span class="nav_text">Estadísticas</span></a></span>  
           <% if(session.user){ %>
-          <span><a href="/user/<%=session.user.id%>/quizes">Mis Preguntas</a></span>
-          <span><a href="/user/<%=session.user.id%>/favourites">Favoritos</a></span>
+          <span><a href="/user/<%=session.user.id%>/quizes"><img class="nav_icon" src="/images/mis_preguntas.svg"><span class="nav_text">Mis Preguntas</span></a></span>
+          <span><a href="/user/<%=session.user.id%>/favourites"><img class="nav_icon" src="/images/favoff.svg"><span class="nav_text">Favoritos</span></a></span>
           <% }%>
       </nav>
       <section class="main" id = "s1">

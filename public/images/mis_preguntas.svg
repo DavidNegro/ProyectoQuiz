@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="20"
+   height="20"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="estadisticas.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="8.4685445"
+     inkscape:cy="13.816676"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1181"
+     inkscape:window-height="809"
+     inkscape:window-x="220"
+     inkscape:window-y="102"
+     inkscape:window-maximized="0"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-nodes="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-global="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-center="true">
+    <sodipodi:guide
+       orientation="0,1"
+       position="64.734735,-73.443443"
+       id="guide3926" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="12.916104,3.7586545"
+       id="guide4059" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1032.3622)">
+    <g
+       id="g4106"
+       transform="translate(0,-0.166)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4061"
+         d="m 6.1082726,1042.121 -1.8498796,7.3645 c 1.2153735,1.5233 3.2722402,2.5481 5.759059,2.5481 2.486818,0 4.473254,-1.0006 5.724155,-2.5481 l -1.849879,-7.3645 c -1.101464,0.6014 -2.423772,0.9772 -3.874276,0.9772 -1.4505045,0 -2.8077154,-0.3758 -3.9091794,-0.9772 z"
+         style="fill:#808080;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4068"
+         d="m 10,1033.0228 c -2.6809998,0 -4.8515705,2.1706 -4.8515705,4.8516 0,2.681 2.1705707,4.8515 4.8515705,4.8515 2.681,0 4.851571,-2.1705 4.851571,-4.8515 0,-2.681 -2.170571,-4.8516 -4.851571,-4.8516 z m 0.174517,0.5933 c 0.584453,0 1.177714,0.2 1.640459,0.5935 0.955769,0.8263 0.304601,2.2487 -0.52355,2.9318 -0.828151,0.6832 -1.267452,1.1777 -1.675363,2.0244 1.015325,1.0472 1.16077,1.139 0.069807,1.5358 -0.3339589,0.1214 -1.0183001,-0.6584 -1.0471017,-1.9198 0.749865,-1.1809 2.2200877,-1.805 2.7922697,-3.1064 0.170709,-1.2835 -1.9044032,-1.5339 -2.3734291,-0.4188 -0.3730037,0.5082 -0.4089744,1.809 -1.3263286,1.6753 -0.9726066,-0.2855 -0.5075925,-1.5068 -0.069807,-2.0592 0.5377611,-0.7845 1.5389557,-1.2623 2.5130437,-1.2566 z m 0.523552,7.0855 c 0.430611,0 0.767874,0.3372 0.767874,0.7678 0,0.4306 -0.337263,0.7679 -0.767874,0.7679 -0.430612,0 -0.7678757,-0.3373 -0.7678757,-0.7679 0,-0.4306 0.3372637,-0.7678 0.7678757,-0.7678 z"
+         style="fill:#808080;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       id="layer1-5"
+       inkscape:label="Capa 1"
+       transform="matrix(0.41950625,0,0,0.41950625,5.7524713,602.17552)" />
+  </g>
+</svg>

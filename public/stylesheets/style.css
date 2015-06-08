@@ -7,7 +7,12 @@ body	{font: 16px Georgia, serif;}
 section > div {padding: 20px;}
 header,nav, section {background: #eee; text-align: center;}
 footer {background: #eee; text-align: center;}
-nav span {margin: 0px 10px 0px 0px; width: 100%; display: inline-block;}
+nav span {margin: 0px 10px 0px 0px;  display: inline-block;}
 #ErrorMsgs {color: #f61; font-size: smaler}
 .right  {float:  right;}
 .quiz_img   {height: : 150px; float: left;}
+#logo{
+    width: 100%;
+    height: 5px;
+  
+}

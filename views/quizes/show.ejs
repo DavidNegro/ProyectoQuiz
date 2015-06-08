@@ -18,13 +18,13 @@
             <% if(fav){%>
             <form method="post" action="/user/<%=session.user.id%>/favourites/<%=quiz.id%>?_method=delete">
                 <button type = "submit" >
-                   <img src="/images/favon.gif"/>
+                   <img src="/images/favon.svg"/>
                 </button>
             </form>
             <%} else {%>
             <form method="post" action="/user/<%=session.user.id%>/favourites/<%=quiz.id%>">
                 <button type = "submit" >
-                    <img src="/images/favoff.gif"/>
+                    <img src="/images/favoff.svg"/>
                 </button>
             </form>
             <% } 
